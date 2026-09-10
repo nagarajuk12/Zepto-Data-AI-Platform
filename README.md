@@ -116,8 +116,6 @@ From the repository root:
 python data_pipeline/web_scraping.py
 ```
 
-Replace `web_scraping.py` with the actual entry-point file.
-
 ## Expected Output
 
 The pipeline should generate the required to be processed dataset, for example:

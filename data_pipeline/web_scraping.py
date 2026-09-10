@@ -60,12 +60,14 @@ def scrape_books():
 
                     # 4. Availability
                     availability = product.find("p", class_="availability").text.strip()
+                    in_stock = "In stock" in availability
                     books_data.append({
                         "title": title,
                         "price_gbp": price,
                         "rating": star_rating,
                         "availability": availability,
                         "category": cat_name,
+                        'in_stock': in_stock
                     })
 
                 # Handle pagination within the category
