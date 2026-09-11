@@ -122,7 +122,7 @@ def query_order_by(connection):
             ORDER BY price_gbp DESC
     """
     result = pd.read_sql_query(query, connection)
-    save_query_output("query_3_limit", query, result)
+    save_query_output("query_2_orderby", query, result)
     return result
 
 def query_limit(connection):
@@ -266,8 +266,11 @@ def main():
     connection = sqlite3.connect(DB_PATH)
 
     try:
-        #create_database(connection)
-        #insert_data(connection, dataframe)
+        # To create database books.db
+        create_database(connection)
+        # To Insert data into database
+        insert_data(connection, dataframe)
+        # Run queries & compare SQL JOIN with pandas merge
         run_queries(connection)
 
     except sqlite3.OperationalError as error:
