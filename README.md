@@ -24,6 +24,8 @@ Zepto-Data-AI-Platform/
 │   ├── query_outputs/             # Exported SQL query results (CSV & TXT)
 │   │   ├── query_1_select_where.csv
 │   │   ├── query_1_select_where.txt
+│   │   ├── query_2_orderby.csv
+│   │   ├── query_2_orderby.txt
 │   │   ├── query_3_limit.csv
 │   │   ├── query_3_limit.txt
 │   │   ├── query_4_distinct.csv
