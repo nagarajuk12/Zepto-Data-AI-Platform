@@ -1,41 +1,66 @@
+# Capstone Project
+Certificate Program in Artificial Intelligence and Machine Learning
+
 # Module 1: Data Pipeline
 
 ## Purpose
 
 The data pipeline is responsible for collecting, cleaning, transforming, validating, and storing the required data.
 
-The pipeline produces the processed dataset required by the subsequent analysis.
+The pipeline produces the processed dataset required by subsequent analysis modules.
+
+---
 
 ## Main Design Decisions
 
-* Data is collected programmatically.
-* Raw data is converted into a structured format.
-* Data is cleaned before analysis.
-* Availability information is converted into a Boolean `in_stock` column.
-* Processed data is saved as a CSV file.
-* File paths are handled so that generated data is stored consistently within the project.
-
-## How to Run
-
-From the repository root:
-
-```bash
-python data_pipeline/web_scraping.py
-```
-
-## Expected Output
-
-The pipeline should generate the required to be processed dataset, for example:
-
-```text
-data_pipeline/
-└── books_dataset.csv
-```
-
-The generated dataset contains the fields required by the project specification, including the parsed `in_stock` Boolean field.
+* **Programmatic Data Collection:** Scraped web data programmatically using Python, BeautifulSoup, and pandas.
+* **Structured Data Ingestion:** Transformed unstructured HTML elements into standardized tabular structures.
+* **Pre-Analysis Data Cleaning:** Validated, cleaned, and standardized fields prior to downstream analysis.
+* **Feature Transformation:** Parsed availability information into a Boolean `in_stock` column.
+* **Fixed Currency Conversion:** Calculated `price_inr` using a project-defined fixed baseline rate of 1 GBP = 105.50 INR (defined as an artificial constant without external API calls or live rates).
+* **Output Standardization:** Saved cleaned and processed records to local CSV format.
+* **Consistent Path Management:** Dynamically resolved relative project paths to ensure persistent file storage across scripts and notebooks.
 
 ---
-## Currency convertion
+
+## Core Focus Areas
+
+* **Web Scraping:** Automated extraction of product and catalog details from target web sources.
+* **Data Cleaning:** Transforming raw scraped data, handling missing values, standardizing formats, and exporting analysis-ready datasets.
+* **SQLite Database:** Local relational database design, table creation, and structured schema management.
+* **SQL Queries:** Executing analytical queries, including filtering (`WHERE`, `BETWEEN`), distinct counts, joins, and limit operations.
+
+---
+
+## Data Pipeline (/data_pipeline) Structure
+
 ```text
-Currency conversion: price_inr is calculated using the project-defined fixed baseline rate of 1 GBP = 105.50 INR. This is an artificial constant defined for this assignment and does not use a live or historical exchange rate or an external API.
+Zepto-Data-AI-Platform/
+│
+├── .venv/                         # Virtual environment (Excluded in the Git)
+│
+├── data_pipeline/                 # Core ETL and database pipeline
+│   ├── query_outputs/             # Exported SQL query results (CSV & TXT)
+│   │   ├── query_1_select_where.csv
+│   │   ├── query_1_select_where.txt
+│   │   ├── query_3_limit.csv
+│   │   ├── query_3_limit.txt
+│   │   ├── query_4_distinct.csv
+│   │   ├── query_4_distinct.txt
+│   │   ├── query_5_between.csv
+│   │   ├── query_5_between.txt
+│   │   ├── query_6_join.csv
+│   │   └── query_6_join.txt
+│   │
+│   ├── books.db                   # SQLite database
+│   ├── books_dataset.csv          # Raw scraped dataset
+│   ├── cleaned_books_dataset.csv  # Cleaned & processed dataset
+│   ├── cleaning_data.ipynb        # Data cleaning workflow
+│   └── database_operations.ipynb  # Interactive SQL query execution & operations
+│   └── README.md                  # Project documentation
+│   └── web_scraping.py            # Web scraper implementation
+├── README.md                      # Project documentation
+└── analytics/                     # Analytics Module
+├── support_assistant/             # Support Assistant Module
+│
 ```

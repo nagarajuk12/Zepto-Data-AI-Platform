@@ -16,33 +16,48 @@ All three modules are maintained in this single repository.
 ## Repository Structure
 
 ```text
-capstone-project/
+Zepto-Data-AI-Platform/
 │
-├── README.md
-├── requirements.txt
+├── .venv/                         # Virtual environment (Excluded in the Git)
 │
-├── data_pipeline/
-│   ├── README.md
-│   ├── *.py
-│   └── *.ipynb
+├── data_pipeline/                 # Core ETL and database pipeline
+│   ├── query_outputs/             # Exported SQL query results (CSV & TXT)
+│   │   ├── query_1_select_where.csv
+│   │   ├── query_1_select_where.txt
+│   │   ├── query_3_limit.csv
+│   │   ├── query_3_limit.txt
+│   │   ├── query_4_distinct.csv
+│   │   ├── query_4_distinct.txt
+│   │   ├── query_5_between.csv
+│   │   ├── query_5_between.txt
+│   │   ├── query_6_join.csv
+│   │   └── query_6_join.txt
+│   │
+│   ├── books.db                   # SQLite database
+│   ├── books_dataset.csv          # Raw scraped dataset
+│   ├── cleaned_books_dataset.csv  # Cleaned & processed dataset
+│   ├── cleaning_data.ipynb        # Data cleaning workflow
+│   └── database_operations.ipynb  # Interactive SQL query execution & operations
+│   └── README.md                  # Data Pipeline documentation
+│   └── web_scraping.py            # Web scraper implementation
 │
 ├── analytics/
-│   ├── README.md
+│   ├── README.md                  #Analytics documentation
 │   ├── *.py
 │   └── *.ipynb
 │
-└── support_assistant/
-    ├── README.md
-    ├── *.py
-    └── *.ipynb
+├── support_assistant/             #Support Assistant documentation
+│   ├── README.md
+│   ├── *.py
+│   └── *.ipynb
+│    
+├── README.md                      # Project documentation
 ```
 
 ---
 
 ## Prerequisites
-
 The project requires:
-
 * Python 3.14.6
 * pip
 * Git
@@ -50,8 +65,10 @@ The project requires:
 * pandas 3.0.5
 * requests 2.34.2
 * numpy 2.5.3
+* pysqlite3 0.6.0
 
-Check the installed Python version:
+
+To check the installed Python version:
 
 ```bash
 python --version
@@ -91,41 +108,16 @@ The file contains the Python packages required by all three modules.
 
 ---
 
-# Module 1: Data Pipeline
+### Technologies Used
+Python
+Pandas
+NumPy
+Scikit-learn
+SQLite
+FastAPI
+LangChain
+LangGraph
+ChromaDB
 
-## Purpose
-
-The data pipeline is responsible for collecting, cleaning, transforming, validating, and storing the required data.
-
-The pipeline produces the processed dataset required by the subsequent analysis.
-
-## Main Design Decisions
-
-* Data is collected programmatically.
-* Raw data is converted into a structured format.
-* Data is cleaned before analysis.
-* Availability information is converted into a Boolean `in_stock` column.
-* Processed data is saved as a CSV file.
-* File paths are handled so that generated data is stored consistently within the project.
-
-## How to Run
-
-From the repository root:
-
-```bash
-python data_pipeline/web_scraping.py
-```
-
-## Expected Output
-
-The pipeline should generate the required to be processed dataset, for example:
-
-```text
-data_pipeline/
-└── books_dataset.csv
-```
-
-The generated dataset contains the fields required by the project specification, including the parsed `in_stock` Boolean field.
-
----
-
+### Author
+Nagaraju Kasa
