@@ -1,0 +1,12 @@
+SELECT
+            books.book_id,
+            books.title,
+            books.price_gbp,
+            books.rating,
+            books.in_stock,
+            categories.category_name
+        FROM books
+        JOIN categories
+            ON books.category_id = categories.category_id
+        ORDER BY books.rating DESC
+        LIMIT 10
