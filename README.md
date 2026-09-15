@@ -75,7 +75,6 @@ To check the installed Python version:
 ```bash
 python --version
 ```
-
 ---
 
 ## Installation
@@ -111,15 +110,15 @@ The file contains the Python packages required by all three modules.
 ---
 
 ### Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-SQLite
-FastAPI
-LangChain
-LangGraph
-ChromaDB
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* SQLite
+* FastAPI
+* LangChain
+* LangGraph
+* ChromaDB
 
 ### Author
 Nagaraju Kasa
