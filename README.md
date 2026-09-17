@@ -48,27 +48,36 @@ Zepto-Data-AI-Platform/
 │   ├── *.py
 │   └── *.ipynb
 │
-├── support_assistant/             #Support Assistant documentation
-│   ├── README.md
-│   ├── *.py
-│   └── *.ipynb
+├── support_assistant/             
+│   ├── README.md                 # Support Assistant documentation
+│   ├── docs/                     # Raw policy .txt files
+│   └── chroma_db/                # Persistent ChromaDB vector store
+│   └── embeddings.py             # Document loading, chunking, and embedding logic
+│   └── prompt.py                 # System and user prompt builders
+│   └── schemas.py                # Pydantic response models (SupportResponse)
+│   └── api.py                    # Application entrypoint
 │    
 ├── README.md                      # Project documentation
 ```
-
 ---
 
 ## Prerequisites
 The project requires:
-* Python 3.14.6
+* python 3
 * pip
-* Git
-* beautifulsoup4 4.15.0
-* pandas 3.0.5
-* requests 2.34.2
-* numpy 2.5.3
-* pysqlite3 0.6.0
-
+* git
+* beautifulsoup4
+* pandas
+* requests
+* numpy
+* chromadb
+* sentence-transformers
+* langchain-groq
+* python-dotenv
+* pysqlite3
+* pydantic
+* fastapi
+* uvicorn
 
 To check the installed Python version:
 
@@ -119,6 +128,10 @@ The file contains the Python packages required by all three modules.
 * LangChain
 * LangGraph
 * ChromaDB
+---
 
+Note: For each module contains README.md file having more information please go through the same!
+
+---
 ### Author
 Nagaraju Kasa
