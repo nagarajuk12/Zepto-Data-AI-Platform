@@ -125,10 +125,6 @@ Designed for local testing, CI/CD, and environments without an active API key:
 - **General Answers:** Predefined fallback responses.
 - **API Key:** Not required.
 
-```bash
-export MOCK_LLM=1
-python -m support_assistant.main
-```
 ### Real LLM Mode (`MOCK_LLM=0`)
 Utilizes a live LLM for contextual reasoning and generation:
 - **Intent Detection:** LLM analyzes nuances in customer inquiries.
@@ -136,10 +132,6 @@ Utilizes a live LLM for contextual reasoning and generation:
 - **Validation:** Raw LLM outputs are parsed and verified through `SupportResponse`.
 - **API Key:** Required.
 
-```bash
-export MOCK_LLM=0
-python -m support_assistant.main
-```
 ---
 ## Directory Structure
 
@@ -153,8 +145,6 @@ support_assistant/
 ├── schemas.py                # Pydantic response models (SupportResponse)
 └── api.py                    # Application entrypoint
 ```
-Overall, the system reads support documents, creates embeddings, stores them in ChromaDB, retrieves relevant information for policy questions, and then generates a structured answer.
-
 ---
 ## Execution Flow and Steps
 
@@ -171,11 +161,11 @@ Move into the project folder:
 ```bash
 cd <your-project-folder>
 ```
-Step 2: Check Python Version
+### Step 2: Check Python Version
 ```bash
 python --version
 ```
-Step 3: Create a Virtual Environment
+### Step 3: Create a Virtual Environment
 ```bash
 python -m venv .venv
 ```
@@ -183,13 +173,13 @@ Activate Virtual Environment
 ```bash
 python -m venv .venv
 ```
-Step 4: Install Required Packages
+### Step 4: Install Required Packages
 Go to the support_assistant folder & Install the required packages:
 ```bash
 cd support_assistant
 pip install -r requirements.txt
 ```
-Step 5: Prepare the Support Documents
+### Step 5: Prepare the Support Documents
 The support documents are stored in:
 
 support_assistant/docs/
@@ -206,7 +196,7 @@ The documents contain information about:
 * Gift cards
 * Support hours
 
-Step 6: Create Embeddings and ChromaDB
+### Step 6: Create Embeddings and ChromaDB
 ```bash
 python embeddings.py
 ```
@@ -220,7 +210,7 @@ The ChromaDB data is stored in: *support_assistant/chroma_db/*
 
 After successful execution, the output should show that the documents, chunks, embeddings, and ChromaDB records were created.
 
-Step 7: Check Mock LLM Mode
+### Step 7: Check Mock LLM Mode
 
 The project uses mock mode by default.
 
@@ -235,7 +225,7 @@ It uses:
 
 This is the default mode used for the graded baseline.
 
-Step 8: Test the LangGraph Assistant
+### Step 8: Test the LangGraph Assistant
 ```bash
 python graph.py
 ```
@@ -269,7 +259,7 @@ This should be routed to:
 ```text
 direct_answer
 ```
-Step 9: Run the FastAPI Application
+### Step 9: Run the FastAPI Application
 Make sure you are inside: **support_assistant/**
 
 Run:
@@ -281,7 +271,7 @@ Open Swagger UI in your browser:
 ```text
 http://localhost:8000/docs
 ```
-Step 10: Test the /ask Endpoint
+### Step 10: Test the /ask Endpoint
 The API uses:
 
 POST /ask
@@ -300,7 +290,7 @@ The response follows this structure:
   "confidence": 1.0
 }
 ```
-Step 11: Test the Dockerfile
+### Step 11: Test the Dockerfile
 Make sure Docker Desktop is running.
 
 From the support_assistant folder, build the Docker image:
@@ -333,3 +323,5 @@ The project uses the following Python libraries:
 | `os` | File and environment variable handling |
 | `pathlib` | Working with file and folder paths |
 | `typing` | Type definitions such as `TypedDict` |
+
+Overall, the system reads support documents, creates embeddings, stores them in ChromaDB, retrieves relevant information for policy questions, and then generates a structured answer.
