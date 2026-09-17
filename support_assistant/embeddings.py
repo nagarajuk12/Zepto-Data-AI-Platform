@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import os
 import chromadb
 from sentence_transformers import SentenceTransformer
@@ -58,13 +57,19 @@ def store_embeddings(chunks, embeddings):
         path=str(CHROMA_DIR)
     )
     collection_data = client.get_or_create_collection(
-        name=COLLECTION_NAME
+        name=COLLECTION_NAME,
+         metadata={"hnsw:space": "cosine"}
     )
     for i, chunk in enumerate(chunks):
         collection_data.add(
             ids=[chunk["id"]],
             documents=[chunk["text"]],
-            metadatas=[{"source": chunk["source"]}],
+            metadatas=[
+                {
+                    "chunk_id": chunk["id"],
+                    "source": chunk["source"]
+                }
+            ],
             embeddings=[embeddings[i].tolist()]
         )
     print("All chunks stored successfully.")
@@ -93,5 +98,7 @@ if __name__ == '__main__':
         chunks_info,
         embeddings_info
     )
+    #Verify/Test results here
+    #verification(collection)
     print(f"Collection: {collection.name}")
     print(f"Documents stored: {collection.count()}")

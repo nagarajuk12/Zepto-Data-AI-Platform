@@ -64,5 +64,4 @@ Zepto-Data-AI-Platform/
 ├── README.md                      # Project documentation
 └── analytics/                     # Analytics Module
 ├── support_assistant/             # Support Assistant Module
-│
 ```
