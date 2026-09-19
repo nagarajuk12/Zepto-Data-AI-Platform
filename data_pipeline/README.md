@@ -1,6 +1,3 @@
-# Capstone Project
-Certificate Program in Artificial Intelligence and Machine Learning
-
 # Module 1: Data Pipeline
 
 ## Purpose
@@ -65,3 +62,30 @@ Zepto-Data-AI-Platform/
 └── analytics/                     # Analytics Module
 ├── support_assistant/             # Support Assistant Module
 ```
+---
+## Execution of the Data Pipeline
+
+```text
+web_scraping.py
+      |
+      |  Scrape web data
+      |  Create books_dataset.csv
+      v
+cleaning_data.ipynb
+      |
+      |  Clean and transform book data using Pandas
+      |  Create cleaned_books_dataset.csv
+      v
+database_operations.py
+      |
+      |  Create database schema
+      |  Insert cleaned book data
+      |  Run SQL queries and database operations
+      v
+SQLite Database
+```
+This clearly shows the required **end-to-end execution order**:
+
+**Web Scraping → Data Cleaning → Database Operations**
+
+One important point: if your actual `database_operations.py` also performs the required **SQL queries, JOIN, and Pandas `merge()` validation**, mentioning those in the README is useful because they are part of the acceptance criteria.

@@ -1,5 +1,6 @@
-# Zepto Support Assistant
+# Module 3: Support Assistant
 
+## Purpose
 A lightweight, robust Retrieval-Augmented Generation (RAG) customer support assistant pipeline powered by LangGraph, ChromaDB, and Sentence Transformers.
 
 ---
