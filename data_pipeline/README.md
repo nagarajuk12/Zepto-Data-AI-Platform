@@ -88,4 +88,4 @@ This clearly shows the required **end-to-end execution order**:
 
 **Web Scraping → Data Cleaning → Database Operations**
 
-One important point: if your actual `database_operations.py` also performs the required **SQL queries, JOIN, and Pandas `merge()` validation**, mentioning those in the README is useful because they are part of the acceptance criteria.
+One important point: if your actual `database_operations.py` also performs the required **SQL queries, JOIN, and Pandas `merge()` validation**.
