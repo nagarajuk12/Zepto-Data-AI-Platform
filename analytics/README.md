@@ -375,18 +375,33 @@ to 0 and standard deviations approximately equal to 1.
 
 ### Imbalance Interpretation
 
-The baseline produced a precision of **X**, recall of **Y**, and F1 score of
-**Z**. The `class_weight='balanced'` approach produced ...
+The baseline model produced a precision of **0.783**, recall of **0.691**, and
+F1 score of **0.734**. The `class_weight='balanced'` approach produced a
+precision of **0.718**, recall of **0.750**, and F1 score of **0.734**.
+SMOTE produced a precision of **0.735**, recall of **0.735**, and F1 score
+of **0.735**.
 
-SMOTE produced ...
+Based on the observed precision, recall, and F1 values, **SMOTE provided the
+most balanced result** among the three approaches, with the highest F1 score
+of **0.735**. The difference in F1 score is very small, but SMOTE also produced
+equal precision and recall values of **0.735**, indicating a balanced trade-off
+between the two metrics.
 
-Based on the observed precision, recall, and F1 values, **[strategy]**
-provided the most suitable balance for this project's classification
-objective because ...
 
+### Random Forest Hyperparameter Tuning
+
+GridSearchCV was used to tune the Random Forest parameters
+`n_estimators`, `max_depth`, and `max_features`.
+
+### Best Parameters
+
+```text
+n_estimators = 100
+max_depth = None
+max_features = sqrt
+```
 ### OOB Score:
-
-0.808
+The best Random Forest model achieved an OOB score of **0.808**
 
 ## Regression Results
 
@@ -408,12 +423,12 @@ heteroscedasticity.
 
 ## Final Model Recommendation
 
-Based on the evaluation results, the selected classifier achieved an accuracy
-of **X**, precision of **X**, recall of **X**, F1 score of **X**, and AUC of
-**X**. These metrics provide information about overall classification accuracy,
-positive-class identification, balance between precision and recall, and
-ranking performance. The selected model is also saved together with its
-preprocessing steps as a single end-to-end pipeline. Therefore, this model
-was selected for deployment based on its observed performance for the project's
-classification objective.
+Based on the evaluation results, **Logistic Regression** achieved an accuracy
+of **0.809**, precision of **0.783**, recall of **0.691**, F1 score of
+**0.734**, and AUC of **0.861**. Compared with the Decision Tree and Random
+Forest, it achieved the highest accuracy and AUC in this evaluation, while
+also achieving the highest precision and F1 score. The model is also included
+with its preprocessing steps as a complete end-to-end pipeline. Therefore,
+Logistic Regression was selected as the final classifier for this project
+based on the observed evaluation metrics.
 
