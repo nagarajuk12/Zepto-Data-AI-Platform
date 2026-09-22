@@ -44,9 +44,12 @@ Zepto-Data-AI-Platform/
 │   └── web_scraping.py            # Web scraper implementation
 │
 ├── analytics/
-│   ├── README.md                  #Analytics documentation
-│   ├── *.py
-│   └── *.ipynb
+│   ├── README.md                    # Analytics documentation
+│   ├── best_titanic_pipeline.joblib # Saved complete preprocessing and final model pipeline
+│   ├── cleaned_titanic.csv          # Cleaned Titanic dataset used for modeling
+│   ├── titanic.csv                  # Raw Titanic dataset saved after initial loading
+│   └── 01_eda.ipynb                 # Data loading, profiling, cleaning, EDA Visualizations, correlation analysis
+│   ├── 02_modeling.ipynb            # Machine learning modeling and evaluation
 │
 ├── support_assistant/             
 │   ├── README.md                 # Support Assistant documentation
